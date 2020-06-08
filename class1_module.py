@@ -5,4 +5,6 @@ class Class1:
 
     def show_var1(self):
         print(self.var1)
+        # branch 1 modifications
+        print('test 1 branch 1 modifications')
 
