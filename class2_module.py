@@ -6,7 +6,4 @@ class Class2:
     def show_var1(self):
         print(self.var1)
         print('late change that I want to have included in the "Corrected Description" commit')
-    def show_var2(self):
-        print(self.var2)
-        print('this function was added by mistake to master branch')
 
