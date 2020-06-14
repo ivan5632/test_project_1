@@ -14,6 +14,5 @@ class Class2:
     def show_var2(self):
         print(self.var2)
 
-    def show_var3(self):
-        print(self.var3)
+
 
