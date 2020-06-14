@@ -11,3 +11,9 @@ class Class2:
         print(self.var1)
         print('late change that I want to have included in the "Corrected Description" commit')
 
+    def show_var2(self):
+        print(self.var2)
+
+    def show_var3(self):
+        print(self.var3)
+
