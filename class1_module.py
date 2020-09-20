@@ -8,7 +8,9 @@ class Class1:
         # branch 1 modifications
         print('test 1 branch 1 modifications')
         print('test 2 branch 1 modifications')
-        print('test 3 branch 1 modifications')
-        print('test 4 branch 1 modifications')
         print('late change that I want to have included in the "Corrected Description" commit')
+        print('late change that I want to have included in the "Corrected Description" commit')
+        print('late change that I want to have change included in the "Corrected Description" commit')
+        print('late change that I want to have included in the "Corrected Description" commit class1_module.py:14')
+        print('late change that I want to have included in the "Corrected Description" commit ')
 
