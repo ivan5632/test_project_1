@@ -14,3 +14,12 @@ class Class1:
         print('late change that I want to have included in the "Corrected Description" commit class1_module.py:14')
         print('late change that I want to have included in the "Corrected Description" commit ')
 
+    def flowrate (self, q:'flow, m3', t:'time period, h') -> 'flowrate, m3/h':
+        print(locals())
+        return q/t
+
+c1 = Class1()
+print(c1.flowrate.__annotations__['return'])
+print(c1.flowrate(4, 7))
+
+
