@@ -3,7 +3,8 @@ import typing
 
 from PyQt5 import QtCore
 from PyQt5.QtWidgets import QApplication, QLabel, QMainWindow, QWidget, QToolBar, QAction,QStatusBar
-from PyQt5.QtCore import Qt
+from PyQt5.QtCore import Qt, QSize
+from PyQt5.QtGui import QIcon
 
 
 class MainWindow(QMainWindow):
@@ -37,9 +38,10 @@ class MainWindow(QMainWindow):
         self.setCentralWidget(label)
 
         toolbar = QToolBar("My main toolbar")
+        toolbar.setIconSize(QSize(16,16))
         self.addToolBar(toolbar)
 
-        button_action = QAction('Button_01', self)
+        button_action = QAction(QIcon("bug.png"), "Your Button", self)
         button_action.setStatusTip("That's Button_01")
         button_action.triggered.connect(self.onMyToolbarButton_01Click)
         button_action.setCheckable(True)
