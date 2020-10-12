@@ -2,7 +2,7 @@ import sys
 import typing
 
 from PyQt5 import QtCore
-from PyQt5.QtWidgets import QApplication, QLabel, QMainWindow, QWidget, QToolBar, QAction,QStatusBar
+from PyQt5.QtWidgets import QApplication, QLabel, QMainWindow, QWidget, QToolBar, QAction,QStatusBar, QCheckBox
 from PyQt5.QtCore import Qt, QSize
 from PyQt5.QtGui import QIcon
 
@@ -41,18 +41,29 @@ class MainWindow(QMainWindow):
         toolbar.setIconSize(QSize(16,16))
         self.addToolBar(toolbar)
 
-        button_action = QAction(QIcon("bug.png"), "Your Button", self)
-        button_action.setStatusTip("That's Button_01")
-        button_action.triggered.connect(self.onMyToolbarButton_01Click)
+        button_action = QAction(QIcon("bug.png"), "Your button", self)
+        button_action.setStatusTip("This is your button")
+        button_action.triggered.connect(self.onMyToolBarButtonClick)
         button_action.setCheckable(True)
         toolbar.addAction(button_action)
 
+        toolbar.addSeparator()
+
+        button_action2 = QAction(QIcon("bug.png"), "Your button2", self)
+        button_action2.setStatusTip("This is your button2")
+        button_action2.triggered.connect(self.onMyToolBarButtonClick)
+        button_action2.setCheckable(True)
+        toolbar.addAction(button_action2)
+
+        toolbar.addWidget(QLabel("Hello"))
+        toolbar.addWidget(QCheckBox())
         self.setStatusBar(QStatusBar(self))
 
     def onMyToolbarButton_01Click(self, s):
         print("Button_01 clicked", s)
 
-
+    def onMyToolBarButtonClick(self, s):
+        print("click", s)
 
     def onWindowTitleChange(self, s):
         print(s)
