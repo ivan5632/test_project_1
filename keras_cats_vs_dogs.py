@@ -154,3 +154,20 @@ def plot_confusion_matrix(cm, classes,
 cm_plot_labels = ['cat', 'dog']
 plot_confusion_matrix(cm=cm, classes=cm_plot_labels, title='Confusion Matrix')
 plt.show()
+
+# build fine-tuned VGG16 model
+
+vgg16_model = tf.keras.applications.vgg16.VGG16()
+print(vgg16_model.summary())
+print(type(vgg16_model))
+
+model = Sequential()
+for layer in vgg16_model.layers[:-1]:
+    model.add(layer)
+
+for layer in model.layers:
+    layer.trainable = False
+
+model.add(Dense(units=2, activation='softmax'))
+
+print(model.summary())
