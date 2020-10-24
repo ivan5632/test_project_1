@@ -171,3 +171,13 @@ for layer in model.layers:
 model.add(Dense(units=2, activation='softmax'))
 
 print(model.summary())
+
+model.compile(optimizer=Adam(learning_rate=0.0001), loss='categorical_crossentropy', metrics=['accuracy'])
+
+model.fit(x=train_batches,
+          steps_per_epoch=len(train_batches),
+          validation_data=valid_batches,
+          validation_steps=len(valid_batches),
+          epochs=5,
+          verbose=2
+          )
