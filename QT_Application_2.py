@@ -1,5 +1,5 @@
 import sys
-from PyQt5.QtWidgets import QMainWindow, QApplication, QAction, qApp, QToolTip, QPushButton, QMessageBox, QDesktopWidget, QMenu
+from PyQt5.QtWidgets import QMainWindow, QApplication, QAction, qApp, QToolTip, QPushButton, QMessageBox, QDesktopWidget, QMenu, QTextEdit
 from PyQt5.QtGui import QIcon, QFont
 
 
@@ -10,10 +10,15 @@ class Example(QMainWindow):
 
     def unitUI(self):
 
+        textEdit = QTextEdit()
+        self.setCentralWidget(textEdit)
+
         exitAct = QAction(QIcon('bug.png'), '&Exit', self)
         exitAct.setShortcut('Ctrl+Q')
         exitAct.setStatusTip('Exit application...')
         exitAct.triggered.connect(qApp.quit)
+
+        self.addToolBar("Exit").addAction(exitAct)
 
         self.statusbar = self.statusBar()
         self.statusbar.showMessage('Ready...')
@@ -85,7 +90,16 @@ class Example(QMainWindow):
         else:
             self.statusbar.hide()
 
+    def contextMenuEvent(self, event):
+        cmenu = QMenu(self)
 
+        newAct = cmenu.addAction("New")
+        openAct = cmenu.addAction("Open")
+        quitAct = cmenu.addAction("Quit")
+        action = cmenu.exec_(self.mapToGlobal(event.pos()))
+
+        if action == quitAct:
+            qApp.quit()
 
 def main():
     app = QApplication(sys.argv)
